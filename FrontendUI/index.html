@@ -2,9 +2,27 @@
 
 <head>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script>
+    $(window).load(function(){
+      setInterval(swap, 1000)
+    });
+    function swap(){
+      item1 = "#img1";
+      item2 = "#img2";
+      if($(item1).is(":visible")){
+        $(item1).fadeToggle(function(){$(item2).fadeToggle()});
+      }
+      if($(item2).is(":visible")){
+        $(item2).fadeToggle(function(){$(item1).fadeToggle()});
+      }
+    }
+
+  </script>
+
 </head>
 <body>
-  <div id="image_holder">
-    <img src="/SlideDump/img.jgp">
+  <div id="image_holder" style="text-align:center; margin-top:10%;">
+    <img id="img1" style="display:none;"src="../SlideDump/crew.png" alt="crew">
+    <img id="img2" src="../SlideDump/crew2.png" alt="crew2.0">
   </div>
 </body>
