@@ -3,3 +3,5 @@
   * ImageMagick will take a multi page PDF and convert it into 1 page per image. So we will not have any issues with needing to explode PDFs  
   * Two folders inside BackendInternals inputPDF and SlidesDump convert.py takes
     the name of a file in inputPDF converts it to a jpg and dumps it into SlidesDump  
+  * Right now the web server (apache) is just pointed at /home/goodwin/dds2/
+    should probably fix that  
