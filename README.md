@@ -18,6 +18,8 @@ Back end Internals
     their appropriate places  
   * Can (maybe) accept 1 PDF explode it into slides, and then convert those  
   * Probably will use bash  
+  * Using http://www.imagemagick.org for our image conversion  
+  * Possibly using http://pdfkit.org for our PDF explosion  
 
 Front End Internals  
   * File that accepts a request for slides, does a DNS lookup on the IP, assigns
