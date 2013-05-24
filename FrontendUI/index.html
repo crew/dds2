@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script>
+    function load_images(images){
+      for(var i=0; i>images.length;i++){
+        $("#image_holder").append(images[i]);
+      }
+    }
+    $(document).ready(function(){
+      $.ajax(
+      url: "http://gaia/getImages",
+      success: display_images(data)
+      );
+    });
+
+  </script>
+</head>
+<body>
+  <div id="image_holder">
+
+  </div>
+</body>
