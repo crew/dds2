@@ -8,18 +8,17 @@ $(".slide-pane img").on("click", function(event){
   event.preventDefault();
   var slidedeck = this.name;
   $.ajax({
-    type:"POST",
+    type:"POST", 
     url:"imageloader.php",
     data:{deck:slidedeck},
     success:function(data){
       data = jQuery.parseJSON(data);
-      $(".slides-window").html("");
-      $(".preview-window").attr("class", "slides-window");
-      $(".page-header").remove();
-      images = data;
-      $(".slides-window").append("<img id='slide' src='"+images[0]+"'>");
-      //swapImages($("#slide"), images[0]);
-      setInterval(loop, 1000);
+      $(".slides-window").html(""); // get rid if the stuff on the mage
+      $(".preview-window").attr("class", "slides-window"); // change the css of that box
+      $(".page-header").remove(); // get rid of our header
+      images = data; // get data into our global variable
+      $(".slides-window").append("<img id='slide' src='"+images[0]+"'>"); // append first image to page
+      setInterval(loop, 1000); // start transitions
     }
   });
 });
@@ -44,10 +43,10 @@ function loop(){
   if(i == images.length){
     i=0;
     loop(images);
-    console.log("restarting");
+    console.log("restarting"); // note in the console when we start presentation over again
   }else{
     swapImages($("#slide"), next(i, images));
-    i++;
+    i++; // increment our counter
   }
 }
 
