@@ -5,3 +5,9 @@
     the name of a file in inputPDF converts it to a jpg and dumps it into SlidesDump  
   * Right now the web server (apache) is just pointed at /home/goodwin/dds2/
     should probably fix that  
+
+
+
+6/15/13
+
+  * Created front-end admin UI for dds
