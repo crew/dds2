@@ -16,16 +16,15 @@ Back end UI
 Back end Internals  
   * Scripts that: Converts PDFs into slides (some image file), puts them into
     their appropriate places  
-  * Can (maybe) accept 1 PDF explode it into slides, and then convert those  
-  * Probably will use bash  
   * Using http://www.imagemagick.org for our image conversion  
-  * Possibly using http://pdfkit.org for our PDF explosion  
+  * Using puppet to assign slides etc.
 
-Front End Internals  
-  * File that accepts a request for slides, does a DNS lookup on the IP, assigns
-    slides according to what name that box has.
-  * Uses some sever magic 
+Front End Internals (MOCK UP DONE)  
+  * Thanks to using puppet we will be able to just give each machine the slides
+    they need, which lets us change the way this works.
+  * Index page looks at what slides have been given, and then will present
+    those.
 
-Front End UI
+Front End UI (MOCK UP DONE)  
   * Web page that DDS front end machine is pointed at (using chrome?)  
   * Page, then makes a second request (once loaded) for images to Front End Internals File & receives slides  
