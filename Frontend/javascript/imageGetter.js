@@ -11,12 +11,13 @@ $(".slide-pane img").on("click", function(event){
     type:"POST", 
     url:"imageloader.php",
     data:{deck:slidedeck},
-    success:function(data){
-      data = jQuery.parseJSON(data);
+    success:function(rawData){
+      data = jQuery.parseJSON(jQuery.parseJSON(rawData));
       $(".slides-window").html(""); // get rid if the stuff on the mage
       $(".preview-window").attr("class", "slides-window"); // change the css of that box
       $(".page-header").remove(); // get rid of our header
-      images = data; // get data into our global variable
+      images = data.images; // get data into our global variable
+      console.log(images);
       $(".slides-window").append("<img id='slide' src='"+images[0]+"'>"); // append first image to page
       setInterval(loop, 1000); // start transitions
     }
