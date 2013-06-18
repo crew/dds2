@@ -1,4 +1,5 @@
 var images = []; // global variable to put images in
+var settings = {};
 /*
  * When img is clicked (from selection pane)
  * we grab those images and put them in images
@@ -12,14 +13,14 @@ $(".slide-pane img").on("click", function(event){
     url:"imageloader.php",
     data:{deck:slidedeck},
     success:function(rawData){
-      data = jQuery.parseJSON(jQuery.parseJSON(rawData));
+      data = jQuery.parseJSON(rawData);
       $(".slides-window").html(""); // get rid if the stuff on the mage
       $(".preview-window").attr("class", "slides-window"); // change the css of that box
       $(".page-header").remove(); // get rid of our header
-      images = data.images; // get data into our global variable
-      console.log(images);
+      images = data.images; // global images 
+      settings = data.settings // global settings 
       $(".slides-window").append("<img id='slide' src='"+images[0]+"'>"); // append first image to page
-      setInterval(loop, 1000); // start transitions
+      setInterval(loop, settings.interval); // start transitions
     }
   });
 });
@@ -34,12 +35,13 @@ function swapImages(I1, I2location){
      I1.attr("src", I2location);
   });
 }
+
 // returns next slide location from array given slide id
 function next(i,images){
   return images[i];
 }
 // if at end of array, loop, else continue
-var i=1;
+var i=1; // 1st image (0) is added up top
 function loop(){
   if(i == images.length){
     i=0;
