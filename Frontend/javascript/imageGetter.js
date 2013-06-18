@@ -50,4 +50,3 @@ function loop(){
     i++; // increment our counter
   }
 }
-
