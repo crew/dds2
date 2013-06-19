@@ -8,11 +8,13 @@ var settings = {};
 $(".slide-pane img").on("click", function(event){ 
   event.preventDefault();
   var slidedeck = this.name;
+
   $.ajax({
     type:"POST", 
     url:"imageloader.php",
     data:{deck:slidedeck},
     success:function(rawData){
+
       data = jQuery.parseJSON(rawData);
       $(".slides-window").html(""); // get rid if the stuff on the mage
       $(".preview-window").attr("class", "slides-window"); // change the css of that box
@@ -22,6 +24,7 @@ $(".slide-pane img").on("click", function(event){
       $(".slides-window").append("<img id='slide' src='"+images[0]+"'>"); // append first image to page
       setInterval(loop, settings.interval); // start transitions
     }
+
   });
 });
 /*
@@ -45,8 +48,8 @@ var i=1; // 1st image (0) is added up top
 function loop(){
   if(i == images.length){
     i=0;
-    loop(images);
-    console.log("restarting"); // note in the console when we start presentation over again
+    loop(images); // restart loop
+    console.log("restarting"); 
   }else{
     swapImages($("#slide"), next(i, images));
     i++; // increment our counter

@@ -11,3 +11,11 @@
 6/15/13
 
   * Created front-end admin UI for dds
+
+
+6/19/13
+
+  * http://www.simonbattersby.com/blog/simple-jquery-image-crossfade/
+  * This is the best cross fade solution I have seen so far, will require
+    re-working how we handle images. will * NOT * work with HTML. If that is
+    still in the works.
