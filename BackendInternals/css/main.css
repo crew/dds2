@@ -1,0 +1,25 @@
+.header{
+  text-align:center;
+  margin:auto;
+  margin-top:10%;
+}
+
+.my-slides{
+  background-color:#EEE;
+  margin-left:9%;
+  width:40%;
+  float:left;
+  height:100px;
+}
+
+.add-slides{
+  background-color:#AAA;
+  margin-left:20px;
+  margin-right:9%;
+  width:40%;
+  height:100px;
+  float:left;
+}
+form{
+  margin:5px;
+}
