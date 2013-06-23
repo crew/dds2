@@ -5,10 +5,10 @@
   <script src="javascript/jquery-1.10.1.min.js"></script><!-- LOCAL JQUERY COPY For developing w/o internet-->
 </head>
 <body>
-  <form method="POST" enctype="multipart/form-data" action="fup.cgi">
-    File to upload: <input type="file" name="upfile"><br>
-    Notes about the file: <input type="text" name="note"><br>
+  <form method="POST" enctype="multipart/form-data" action="upload.php">
+    <label>Slide Deck Name: </label> <input type="text" name="filename"><br>
+    <label>Slide Deck PDF:  </label><input id="file" type="file" name="file"><br>
     <br>
-    <input type="submit" value="Press"> to upload the file!
+    <input type="submit" name="submit" value="Submit"> to upload the file!
   </form>
 </body>
