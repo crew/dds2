@@ -24,3 +24,5 @@
 6/22/13
 
   * added uploading (VERY BASIC)
+  * changed Apache's upload limit to 20MB -- we need to puppet this
+  * https://forge.puppetlabs.com/puppetlabs/apache
