@@ -1,8 +1,8 @@
 <head>
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"></style>
 <link rel="stylesheet" type="text/css" href="css/main.css"></style>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<!-- <script src="javascript/jquery-1.10.1.min.js"></script>LOCAL JQUERY COPY For developing w/o internet-->
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> -->
+<script src="javascript/jquery-1.10.1.min.js"></script><!--LOCAL JQUERY COPY For developing w/o internet-->
 </head>
 <?php
 if(count($_FILES)>0){
@@ -28,14 +28,15 @@ if(count($_FILES)>0){
       if (file_exists("upload/" . $_FILES["file"]["name"]))
       {
         echo "<div style=\"width:350px;\"class=\"alert alert-error\">";
-        echo $_FILES["file"]["name"] . " <b>already exists.<b>"; // error if is same file
+        echo $_FILES["file"]["tmp_name"] . " <b>already exists.<b>"; // error if is same file
         echo "</div>";
       }
       else
       {
         move_uploaded_file($_FILES["file"]["tmp_name"],
-          "upload/" . $_FILES["file"]["name"]);
-        echo "Stored in: " . "upload/" . $_FILES["file"]["name"]; // else say we stored it 
+                           "upload/" . array_pop(explode("/", $_FILES["file"]["tmp_name"])));
+        echo "Stored in: " . "upload/" . $_FILES["file"]["tmp_name"]; // else say we stored it 
+        //TODO  Make note in db of the paring between names
       }
     }
   }
