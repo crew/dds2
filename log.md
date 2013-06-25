@@ -23,6 +23,11 @@
 
 6/22/13
 
-  * added uploading (VERY BASIC)
-  * changed Apache's upload limit to 20MB -- we need to puppet this
+  * Added uploading (VERY BASIC)
+  * Changed Apache's upload limit to 20MB -- we need to puppet this
   * https://forge.puppetlabs.com/puppetlabs/apache
+
+6/25/13
+
+  * Convert script is up, uses paths from my local laptop
+  * Next goal is to move to a more production like environment
