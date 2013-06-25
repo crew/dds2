@@ -36,6 +36,7 @@ if(count($_FILES)>0){
         move_uploaded_file($_FILES["file"]["tmp_name"],
                            "upload/" . array_pop(explode("/", $_FILES["file"]["tmp_name"])));
         echo "Stored in: " . "upload/" . $_FILES["file"]["tmp_name"]; // else say we stored it 
+        shell_exec("./convert.py")
         //TODO  Make note in db of the paring between names
       }
     }
