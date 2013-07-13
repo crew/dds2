@@ -9,7 +9,7 @@
   <body>
     <div class="navbar">
       <div class="navbar-inner">
-        <a class="brand" href="/home">DDS</a>
+        <a class="brand" href="/home">Digital Display System</a>
         <ul class="nav">
           <li><a href="/upload-slidedeck">Upload Slidedeck</a></li>
           <li><a href="/thong">Thing</a></li>
