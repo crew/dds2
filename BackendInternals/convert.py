@@ -2,15 +2,21 @@
 import os
 import sys
 
-if(len(sys.argv) != 1):
-  FILE= sys.argv[1]
-  """We need the file without the extension so that we can name our images using ImageMagick"""
-  FILENAME = FILE.split(".")[0]
+FILES="/Users/goodwin/Git/dds2/BackendInternals/upload/"
 
-  print "Converting inputPDF/"+FILE+" to SlidesDump/ouput/"+FILENAME+".jpg"
-  result = os.popen("convert inputPDF/"+FILE+" SlidesDump/"+FILENAME+".jpg").read()
+#change into our uploads
+os.chdir(FILES)
+for files in os.listdir("."):
+  split = files.split(".")
+  arrayfilename = split[0:len(split)-1]
+  filename = "".join(arrayfilename)
+  print "Converting: upload/"+files
+  print "To:         processed/"+filename+".jpg"
+  # create the directories
+  result = os.popen("mkdir -p /Users/goodwin/Git/dds2/Frontend/slides/"+filename)
+  # do the conversion, assuming our pdf 
+  result = os.popen("convert upload/"+files+" SlidesDump/"+filename+".jpg").read()
+  
 
-  print result
 
-else:
-  print "Bailing, not right number of args"
+

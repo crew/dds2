@@ -19,3 +19,15 @@
   * This is the best cross fade solution I have seen so far, will require
     re-working how we handle images. will * NOT * work with HTML. If that is
     still in the works.
+
+
+6/22/13
+
+  * Added uploading (VERY BASIC)
+  * Changed Apache's upload limit to 20MB -- we need to puppet this
+  * https://forge.puppetlabs.com/puppetlabs/apache
+
+6/25/13
+
+  * Convert script is up, uses paths from my local laptop
+  * Next goal is to move to a more production like environment
