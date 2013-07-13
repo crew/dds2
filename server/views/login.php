@@ -1,7 +1,4 @@
 <?php include('header.php'); ?>
-<?php
-print_r($_POST);
-?>
 <div class='container'>
   <div class='span5'>
     <h1>Sign in, please</h1>
