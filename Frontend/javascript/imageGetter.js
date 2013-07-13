@@ -24,9 +24,11 @@ $(".slide-pane img").on("click", function(event){
       $(".slides-window").append("<img id='slide' src='"+images[0]+"'>"); // append first image to page
       setInterval(loop, settings.interval); // start transitions
     }
-
   });
 });
+
+
+
 /*
  * swaps 2 images, replacing the first with the second, 
  * swapImages(HTMLDOM, STRING);
