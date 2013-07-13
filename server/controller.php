@@ -11,6 +11,7 @@ if(count($url) < 1)
 switch($url[0]) {
   case 'home': include 'views/home.php'; break;
   case 'login': include 'views/login.php'; break;
+  case 'do-login': include 'views/do-login.php'; break;
 }
 
 
