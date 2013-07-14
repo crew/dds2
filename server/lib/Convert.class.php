@@ -12,7 +12,7 @@ class Convert {
     $Imagick->setFormat("jpg");
     $Imagick->setImageFormat("jpg");
     $Imagick->writeImageFile($jpg_handle);
-    fclose($pdf_location);
+    fclose($pdf_handle);
     fclose($jpg_handle);
   }
 
