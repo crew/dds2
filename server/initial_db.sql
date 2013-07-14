@@ -16,7 +16,7 @@ Table Name: deck_group
 
 Table Name: machine_deck_assignment
 1. machine_fqdn   vc 300
-2. did            int
+2. uuid           vc 300
 
 GROUPS
 Table Name: group_name
@@ -69,10 +69,9 @@ CREATE TABLE `deck_user` (
 
 DROP TABLE IF EXISTS `machine_deck_assignment`;
 CREATE TABLE `machine_deck_assignment` (
-  `did` int(255) NOT NULL,
+  `uuid` varchar(300) NOT NULL,
   `machine_fqdn` varchar(300) NOT NULL,
-  PRIMARY KEY (`did`,`machine_fqdn`),
-  CONSTRAINT `fk_did_machine_deck_assignment` FOREIGN KEY (`did`) REFERENCES `deck` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`uuid`,`machine_fqdn`)
 ) ENGINE=InnoDB;
 
 -- machine_deck_assignment
