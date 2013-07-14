@@ -2,7 +2,7 @@
 
 class dds2-client {
 
-  $packages = ['apache2', 'php5', 'php5-ldap', 'imagemagick', 'mysql-server', 'php5-mysql']
+  $packages = ['apache2', 'php5', 'php5-ldap', 'imagemagick', 'mysql-server', 'php5-mysql', 'libapache2-mod-php5']
   package { $packages: ensure => installed }
 
   $services = ['apache2', 'mysql']
