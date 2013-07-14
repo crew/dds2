@@ -41,6 +41,12 @@ class Machine {
     return $machines;
   }
 
+  public function get_name() {
+    return $this->name;
+  }
 
+  public function get_deck_uuids() {
+    return $this->deck;
+  }
 }
 ?>
