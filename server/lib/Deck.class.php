@@ -6,8 +6,6 @@ class Deck {
   private $id;
   # Deck Name.
   private $name;
-  # Deck data (this should be a tar file containing the slides in the slides/ folder and a settings.json file).
-  private $data;
   # Array of user ids that are allowed to modify this Deck
   private $user;
   # Array of group ids that are allowed to modify this Deck.
@@ -17,7 +15,7 @@ class Deck {
   public static function find_deck_by_id($id) {
     $deck = new Deck();
     # Set the attributes from the deck table
-    $result = mysqli_query("SELECT * FROM deck WHERE id = '$id'");
+    $result = mysqli_query("SELECT id,name FROM deck WHERE id = '$id'");
     $deck->build_from_deck_table($result);
     return $deck;
   }
@@ -25,7 +23,7 @@ class Deck {
   # Find a deck from its name
   public static function find_deck_by_name($name){
     $deck = new Deck();
-    $result = mysqli_query("SELECT * FROM deck WHERE name LIKE '%$name%'");
+    $result = mysqli_query("SELECT id,name FROM deck WHERE name LIKE '%$name%'");
     $deck->build_from_deck_table($result);
     return $deck;
   }
@@ -35,7 +33,6 @@ class Deck {
     $row = mysqli_fetch_assoc($sql_result);
     $this->set_id($row['id']);
     $this->set_name($row['name']);
-    $this->set_data($row['data']);
     $this->build_user();
     $this->build_group();
   }
@@ -54,6 +51,24 @@ class Deck {
     $this->user = $row;
   }
 
+  # Checks if the name exists in the deck table, implying it exists
+  public function exists_by_name($name) {
+    $result = mysqli_query("SELECT name FROM deck WHERE name = '$name'");
+    if(mysqli_num_rows($result))
+      return true;
+    else
+      return false;
+  }
+
+  # Checks if the id exists in the deck table, implying the deck exists
+  public function exists_by_id($id) {
+    $result = mysqli_query("SELECT id FROM deck WHERE id = '$id'");
+    if(mysqli_num_rows($result))
+      return true;
+    else
+      return false;
+  }
+
   public function set_id($id) {
     $this->id = $id;
   }
@@ -68,10 +83,6 @@ class Deck {
 
   public function set_group($group) {
     $this->group= $group;
-  }
-
-  public function set_data($data) {
-    $this->data = $data;
   }
 
 }
