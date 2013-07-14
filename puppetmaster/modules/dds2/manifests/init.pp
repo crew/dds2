@@ -8,4 +8,7 @@ class dds2-client {
   $services = ['apache2', 'mysql']
   service { $services: ensure => running }
 
+  Package['apache2'] -> Service['apache2']
+  Package['mysql-server'] -> Service['mysql']
+
 }
