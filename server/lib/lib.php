@@ -28,7 +28,7 @@ function remove_query_parameters($url_array) {
 
 #### Initial MySQL connection
 $conn = mysqli_connect(DB_LOCATION, DB_USER, DB_PASS, DB_NAME) or die('Could not connect to MySQL database');
-$pgconn = pg_pconnect('host='.PuppetDB_LOCATION.' user='.PuppetDB_USER.' pass='.PuppetDB_PASS.' db='.PuppetDB_NAME);
+$pgconn = pg_pconnect('host='.PuppetDB_LOCATION.' user='.PuppetDB_USER.' password='.PuppetDB_PASS.' db='.PuppetDB_NAME);
 
 ?>
 
