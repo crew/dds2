@@ -12,8 +12,9 @@ if(!Login::is_user_logged_in() && $url[0] != 'login' && $url[0] != 'do-login')
 
 # Switch for url routing
 switch($url[0]) {
-  case 'login': include 'views/login.php'; break;
-  case 'do-login': include 'views/do-login.php'; break;
+  case 'login':      include 'views/login.php';      break;
+  case 'do-login':   include 'views/do-login.php';   break;
+  case 'add-slide-deck': include 'views/add-slide-deck.php'; break;
   default: include 'views/home.php';
 }
 
