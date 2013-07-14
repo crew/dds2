@@ -12,7 +12,7 @@
         <a class="brand" href="/home">Digital Display System</a>
         <ul class="nav">
           <li><a href="/add-slide-deck">Add Slide Deck</a></li>
-          <li><a href="/thong">Thing</a></li>
+          <li><a href="/assign-slide">Deploy Slide Deck</a></li>
         </ul>
       </div>
     </div>

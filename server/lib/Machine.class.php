@@ -22,8 +22,8 @@ class Machine {
   # Uses this machine's name and figures out all the associated decks.
   public function build_decks(){
     global $conn;
-
-    $result = mysqli_query($conn, "SELECT * FROM machine_deck_assignment WHERE name = '{$this->name}'");
+    $query = "SELECT * FROM machine_deck_assignment WHERE machine_fqdn ='{$this->name}'";
+    $result = mysqli_query($conn, $query);
     while($row = mysqli_fetch_array($result)){
       # $row['uuid'] yo.
       $this->deck[] = $row['uuid'];
@@ -33,7 +33,7 @@ class Machine {
   # Returns all machines
   public static function all_machines() {
     global $pgconn;
-    $machines = new array();
+    $machines = array();
     $result = pg_query($pgconn, "SELECT * FROM certnames");
     while($row = pg_fetch_array($result)){
       $machines[] = Machine::find_machine($row['name']);
@@ -47,6 +47,10 @@ class Machine {
 
   public function get_deck_uuids() {
     return $this->deck;
+  }
+  
+  public function set_name($name){
+    $this->name = $name;
   }
 }
 ?>
