@@ -30,7 +30,16 @@ class Machine {
     }
   }
 
-
+  # Returns all machines
+  public static function all_machines() {
+    global $pgconn;
+    $machines = new array();
+    $result = pg_query($pgconn, "SELECT * FROM certnames");
+    while($row = pg_fetch_array($result)){
+      $machines[] = Machine::find_machine($row['name']);
+    }
+    return $machines;
+  }
 
 
 }
