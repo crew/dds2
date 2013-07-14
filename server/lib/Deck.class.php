@@ -24,9 +24,10 @@ class Deck {
 
   # Find a deck from a deck uuid
   public static function find_deck_by_uuid($uuid) {
+    global $conn;
     $deck = new Deck();
     # Set the attributes from the deck table
-    $result = mysqli_query("SELECT id,name,uuid FROM deck WHERE uuid = '$uuid'");
+    $result = mysqli_query($conn, "SELECT id,name,uuid FROM deck WHERE uuid = '$uuid'");
     $deck->build_from_deck_table($result);
     return $deck;
   }
@@ -51,14 +52,16 @@ class Deck {
 
   # Uses this object's id and builds the user variable
   public function build_user() {
-    $result = mysqli_query("SELECT uid FROM deck_user WHERE did = '{$this->id}'");
+    global $conn;
+    $result = mysqli_query($conn,"SELECT uid FROM deck_user WHERE did = '{$this->id}'");
     $row = mysqli_fetch_row($result);
     $this->user = $row;
   }
 
   # Uses this object's id and builds the group variable
   public function build_group() {
-    $result = mysqli_query("SELECT gid FROM deck_user WHERE did = '{$this->id}'");
+    global $conn;
+    $result = mysqli_query($conn, "SELECT gid FROM deck_group WHERE did = '{$this->id}'");
     $row = mysqli_fetch_row($result);
     $this->user = $row;
   }
@@ -106,6 +109,14 @@ class Deck {
 
   }
 
+  public function assign_machine($machine_fqdn) {
+    global $conn;
+    $query = "INSERT INTO machine_deck_assignment (uuid, machine_fqdn) VALUES ('{$this->uuid}','$machine_fqdn')";
+    mysqli_query($conn,$query);
+  }
+
+
+
   public function set_id($id) {
     $this->id = $id;
   }
@@ -125,5 +136,9 @@ class Deck {
   public function set_group($group) {
     $this->group= $group;
   }
+
+  public function get_uuid(){
+    return $this->uuid;
+  } 
 
 }
