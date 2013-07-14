@@ -92,7 +92,7 @@ class Deck {
       mysqli_query($conn, "INSERT INTO deck (name, uuid) VALUES ('{$this->name}', '{$this->uuid}')");
 
     # And add the user permissions
-    if(count($this->user > 0)){
+    if(count($this->user) > 0){
       foreach($this->user as $user){
         mysqli_query($conn, "INSERT INTO deck_user (did, uid) VALUES ('{$this->id}', '$user') ON DUPLICATE KEY UPDATE uid = '$user'");
       }
