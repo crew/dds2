@@ -2,10 +2,9 @@
 
 class dds2 {
 
-  package { 'apache2': ensure => installed }
-  package { 'php5': ensure => installed }
-  package { 'php-ldap': ensure => installed }
-  package { 'imagemagick': ensure => installed }
+  $packages = ['apache2', 'php5', 'php-ldap', 'imagemagick', 'mysql-server']
+
+  package { $packages: ensure => installed }
 
   service { 'apache2': ensure => running }
 
