@@ -7,11 +7,14 @@ $url = explode_url($_SERVER['REQUEST_URI']);
 if(count($url) < 1)
   header('Location:/home');
 
+if(!Login::is_user_logged_in() && $url[0] != 'login')
+  header('Location:/login');
+
 # Switch for url routing
 switch($url[0]) {
-  case 'home': include 'views/home.php'; break;
   case 'login': include 'views/login.php'; break;
   case 'do-login': include 'views/do-login.php'; break;
+  default: include 'views/home.php';
 }
 
 
