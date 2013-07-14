@@ -6,6 +6,8 @@ class Deck {
   private $id;
   # Deck Name.
   private $name;
+  # Every slide deck has a uuid
+  private $uuid;
   # Array of user ids that are allowed to modify this Deck
   private $user;
   # Array of group ids that are allowed to modify this Deck.
@@ -20,10 +22,19 @@ class Deck {
     return $deck;
   }
 
+  # Find a deck from a deck uuid
+  public static function find_deck_by_uuid($uuid) {
+    $deck = new Deck();
+    # Set the attributes from the deck table
+    $result = mysqli_query("SELECT id,name,uuid FROM deck WHERE uuid = '$uuid'");
+    $deck->build_from_deck_table($result);
+    return $deck;
+  }
+
   # Find a deck from its name
   public static function find_deck_by_name($name){
     $deck = new Deck();
-    $result = mysqli_query("SELECT id,name FROM deck WHERE name LIKE '%$name%'");
+    $result = mysqli_query("SELECT id,name,uuid FROM deck WHERE name LIKE '%$name%'");
     $deck->build_from_deck_table($result);
     return $deck;
   }
@@ -33,6 +44,7 @@ class Deck {
     $row = mysqli_fetch_assoc($sql_result);
     $this->set_id($row['id']);
     $this->set_name($row['name']);
+    $this->set_uuid($row['uuid']);
     $this->build_user();
     $this->build_group();
   }
@@ -69,6 +81,23 @@ class Deck {
       return false;
   }
 
+  # Save this object into the database
+  public function save() {
+    # Currently, the only thing modifiable is the name.
+    if($this->exists_by_id($this->id))
+      mysql_query("UPDATE deck SET name='{$this->name} WHERE id = '{$this->id}'");
+    else
+      mysql_query("INSERT INTO deck (name, uuid) VALUES ('{$this->name}', '{$this->uuid}')");
+
+    # And add the user permissions
+    if(count($this->user > 0)){
+      foreach($this->user as $user){
+        mysql_query("INSERT INTO deck_user (did, uid) VALUES ('{$this->id}', '$user') ON DUPLICATE KEY UPDATE uid = '$user'");
+      }
+    }
+
+  }
+
   public function set_id($id) {
     $this->id = $id;
   }
@@ -79,6 +108,10 @@ class Deck {
 
   public function set_user($user) {
     $this->user = $user;
+  }
+
+  public function set_uuid($uuid) {
+    $this->uuid = $uuid;
   }
 
   public function set_group($group) {
