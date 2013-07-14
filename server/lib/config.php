@@ -9,6 +9,6 @@ define('LDAP_BIND_DN', '');
 define('DB_LOCATION', '');
 define('DB_USER', '');
 define('DB_PASS', '');
-
+define('DB_NAME', '');
 
 ?>
