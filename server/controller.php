@@ -7,7 +7,7 @@ $url = explode_url($_SERVER['REQUEST_URI']);
 if(count($url) < 1)
   header('Location:/home');
 
-if(!Login::is_user_logged_in() && $url[0] != 'login')
+if(!Login::is_user_logged_in() && $url[0] != 'login' && $url[0] != 'do-login')
   header('Location:/login');
 
 # Switch for url routing
