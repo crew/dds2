@@ -31,3 +31,10 @@
 
   * Convert script is up, uses paths from my local laptop
   * Next goal is to move to a more production like environment
+
+
+
+7/13/13
+  
+  * Added mysql to stack, created a db creation script
+

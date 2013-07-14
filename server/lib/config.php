@@ -1,7 +1,14 @@
 <?php
 
-define("LDAP_SERVER", "cluster.ldap.ccs.neu.edu");
-define("LDAP_PORT", 389);
-define("LDAP_BIND_DN", "ou=people,dc=ccs,dc=neu,dc=edu");
+# LDAP SETTINGS
+define('LDAP_SERVER', '');
+define('LDAP_PORT', '');
+define('LDAP_BIND_DN', '');
+
+# Database settings
+define('DB_LOCATION', '');
+define('DB_USER', '');
+define('DB_PASS', '');
+
 
 ?>
