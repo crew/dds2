@@ -91,6 +91,12 @@ class Deck {
     else
       mysqli_query($conn, "INSERT INTO deck (name, uuid) VALUES ('{$this->name}', '{$this->uuid}')");
 
+    # Gotta get that ID for the user permissions thing
+    $result = mysqli_query($conn, "SELECT id FROM deck WHERE uuid = '{$this->uuid}'");
+    $row = mysqli_fetch_assoc($result);
+    $this->id = $row['id'];
+
+
     # And add the user permissions
     if(count($this->user) > 0){
       foreach($this->user as $user){
