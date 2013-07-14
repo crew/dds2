@@ -74,7 +74,8 @@ class Deck {
 
   # Checks if the id exists in the deck table, implying the deck exists
   public function exists_by_id($id) {
-    $result = mysqli_query("SELECT id FROM deck WHERE id = '$id'");
+    global $conn;
+    $result = mysqli_query($conn, "SELECT id FROM deck WHERE id = '$id'");
     if(mysqli_num_rows($result))
       return true;
     else
@@ -83,16 +84,17 @@ class Deck {
 
   # Save this object into the database
   public function save() {
+    global $conn;
     # Currently, the only thing modifiable is the name.
     if($this->exists_by_id($this->id))
-      mysql_query("UPDATE deck SET name='{$this->name} WHERE id = '{$this->id}'");
+      mysqli_query($conn, "UPDATE deck SET name='{$this->name} WHERE id = '{$this->id}'");
     else
-      mysql_query("INSERT INTO deck (name, uuid) VALUES ('{$this->name}', '{$this->uuid}')");
+      mysqli_query($conn, "INSERT INTO deck (name, uuid) VALUES ('{$this->name}', '{$this->uuid}')");
 
     # And add the user permissions
     if(count($this->user > 0)){
       foreach($this->user as $user){
-        mysql_query("INSERT INTO deck_user (did, uid) VALUES ('{$this->id}', '$user') ON DUPLICATE KEY UPDATE uid = '$user'");
+        mysqli_query($conn, "INSERT INTO deck_user (did, uid) VALUES ('{$this->id}', '$user') ON DUPLICATE KEY UPDATE uid = '$user'");
       }
     }
 

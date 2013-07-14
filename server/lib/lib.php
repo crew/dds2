@@ -27,7 +27,7 @@ function remove_query_parameters($url_array) {
 
 
 #### Initial MySQL connection
-mysqli_connect(DB_LOCATION, DB_USER, DB_PASS, DB_NAME) or die('Could not connect to MySQL database');
+$conn = mysqli_connect(DB_LOCATION, DB_USER, DB_PASS, DB_NAME) or die('Could not connect to MySQL database');
 
 ?>
 
