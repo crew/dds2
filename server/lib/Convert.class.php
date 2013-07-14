@@ -5,7 +5,7 @@
 class Convert {
 
   public function __construct($pdf_location, $jpg_output_location){
-    `convert $pdf_location $jpg_output_location/.jpg`;
+    `mkdir $jpg_output_location; convert $pdf_location $jpg_output_location/slide.jpg`;
   }
 
 
