@@ -5,7 +5,7 @@
     <p>Upload a PDF to create a slide deck. Digital Display will take each page of your PDF and convert them into a slide deck. All you have to do is take your presentation and upload it to the cloud~~~.</p>
   </div>
   <div class='span5'>
-    <form class='form-horizontal' action='/do-upload.php' method='POST' enctype='multipart/form-data'>
+    <form class='form-horizontal' action='/do-upload' method='POST' enctype='multipart/form-data'>
       <div class='control-group'>
         <label class='control-label' for='name'>Name</label>
         <div class='controls'>
