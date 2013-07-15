@@ -13,6 +13,7 @@
         <ul class="nav">
           <li><a href="/add-slide-deck">Add Slide Deck</a></li>
           <li><a href="/assign-slide">Deploy Slide Deck</a></li>
+          <li><a href="/slide-inventory">Slide Deck Inventory</a></li>
         </ul>
       </div>
     </div>

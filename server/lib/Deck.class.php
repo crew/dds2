@@ -15,9 +15,10 @@ class Deck {
 
   # Find a deck from a deck id
   public static function find_deck_by_id($id) {
+    global $conn;
     $deck = new Deck();
     # Set the attributes from the deck table
-    $result = mysqli_query("SELECT id,name FROM deck WHERE id = '$id'");
+    $result = mysqli_query($conn, "SELECT id,name,uuid FROM deck WHERE id = '$id'");
     $deck->build_from_deck_table($result);
     return $deck;
   }
@@ -141,4 +142,12 @@ class Deck {
     return $this->uuid;
   } 
 
+  public function get_name(){
+    return $this->name;
+  } 
+ 
+  
+  public function get_user(){
+    return $this->user;
+  }
 }

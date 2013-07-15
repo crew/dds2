@@ -24,7 +24,7 @@ class Machine {
     global $conn;
     $query = "SELECT * FROM machine_deck_assignment WHERE machine_fqdn ='{$this->name}'";
     $result = mysqli_query($conn, $query);
-    while($row = mysqli_fetch_array($result)){
+   while($row = mysqli_fetch_array($result)){
       # $row['uuid'] yo.
       $this->deck[] = $row['uuid'];
     }

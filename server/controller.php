@@ -12,13 +12,14 @@ if(!Login::is_user_logged_in() && $url[0] != 'login' && $url[0] != 'do-login')
 
 # Switch for url routing
 switch($url[0]) {
-  case 'login':          include 'views/login.php';          break;
-  case 'do-login':       include 'views/do-login.php';       break;
-  case 'add-slide-deck': include 'views/add-slide-deck.php'; break;
-  case 'do-upload':      include 'views/do-upload.php';      break;
-  case 'assign-slide':      include 'views/assign-slide.php';break;
-  case 'do-assign-slide':      include 'views/do-assign-slide.php';break;
-default: include 'views/home.php';
+  case 'login':          include 'views/login.php';                 break;
+  case 'do-login':       include 'views/do-login.php';              break;
+  case 'slide-inventory':      include 'views/slide-inventory.php'; break;
+  case 'do-upload':         include 'views/do-upload.php';          break;
+  case 'assign-slide':      include 'views/assign-slide.php';       break;
+  case 'do-assign-slide':      include 'views/do-assign-slide.php'; break;
+  case 'add-slide-deck': include 'views/add-slide-deck.php';        break;
+  default: include 'views/home.php';
 }
 
 
