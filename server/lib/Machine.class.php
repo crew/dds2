@@ -44,13 +44,14 @@ class Machine {
   public function get_name() {
     return $this->name;
   }
-
-  public function get_deck_uuids() {
-    return $this->deck;
-  }
-  
+ 
   public function set_name($name){
     $this->name = $name;
   }
+  
+  public function get_deck_uuids() {
+    return $this->deck;
+  }
+ 
 }
 ?>

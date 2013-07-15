@@ -12,6 +12,8 @@ class Deck {
   private $user;
   # Array of group ids that are allowed to modify this Deck.
   private $group;
+  # Array of machines associated with this Deck.
+  private $machines;
 
   # Find a deck from a deck id
   public static function find_deck_by_id($id) {
@@ -49,6 +51,7 @@ class Deck {
     $this->set_uuid($row['uuid']);
     $this->build_user();
     $this->build_group();
+    $this->build_machines();
   }
 
   # Uses this object's id and builds the user variable
@@ -59,6 +62,15 @@ class Deck {
     $this->user = $row;
   }
 
+  # Uses this object's id and gets all the machines associated with this deck
+  public function build_machines() {
+    global $conn;
+    $query = "SELECT machine_fqdn FROM machine_deck_assignment WHERE uuid = '{$this->uuid}'";
+    $result = mysqli_query($conn, $query);
+    while($row = mysqli_fetch_array($result)){
+      $this->machines[] = $row['machine_fqdn'];
+    } 
+  }
   # Uses this object's id and builds the group variable
   public function build_group() {
     global $conn;
@@ -146,6 +158,9 @@ class Deck {
     return $this->name;
   } 
  
+  public function get_deck_machines() {
+    return $this->machines;
+  }
   
   public function get_user(){
     return $this->user;
