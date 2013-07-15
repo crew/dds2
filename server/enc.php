@@ -10,7 +10,7 @@ require 'lib/lib.php';
 $machine = Machine::find_machine($argv[1]);
 
 $classes = array();
-$classes['classes']['dds-client']['slides'] = $machine->get_deck_uuids();
+$classes['classes']['dds2-client']['slides'] = $machine->get_deck_uuids();
 
 echo yaml_emit($classes);
 exit(0);
