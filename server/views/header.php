@@ -16,6 +16,7 @@
         <ul class="nav">
           <li><a href="/add-slide-deck">Add Slide Deck</a></li>
           <li><a href="/slide-inventory">Slide Deck Inventory</a></li>
+          <li><a href="/do-logout"> Logout</a></li>
         </ul>
       </div>
     </div>
