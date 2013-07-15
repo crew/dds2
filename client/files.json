@@ -1,0 +1,9 @@
+<?php
+$dir = scandir('slides');
+# Remove . and ..
+array_shift($dir);
+array_shift($dir);
+
+header("Content-Type: application/json");
+echo json_encode($dir);
+?>
