@@ -5,5 +5,13 @@ array_shift($dir);
 array_shift($dir);
 
 header("Content-Type: application/json");
-echo json_encode($dir);
+
+$files_raw = `find slides |grep jpg`;
+$files = explode("\n", $files_raw);
+
+
+
+echo json_encode($files);
+
+
 ?>
