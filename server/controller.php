@@ -19,7 +19,8 @@ switch($url[0]) {
   case 'assign-slide':      include 'views/assign-slide.php';       break;
   case 'do-assign-slide':      include 'views/do-assign-slide.php'; break;
   case 'add-slide-deck': include 'views/add-slide-deck.php';        break;
-  default: include 'views/home.php';
+  case 'do-logout':      include 'views/do-logout.php';             break;
+default: include 'views/home.php';
 }
 
 
