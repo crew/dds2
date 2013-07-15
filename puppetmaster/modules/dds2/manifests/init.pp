@@ -26,14 +26,15 @@ class dds2-client (
   ]
   service { $services: ensure => running }
 
-  Package['apache2'] -> Service['apache2']
-  Package['mysql-server'] -> Service['mysql']
-
   file { '/var/www/':
     ensure => directory,
+    recurse => true,
+    links => follow,
+    source => "puppet:///modules/dds2-client/www",
+    before => File['/var/www/slides/']
   }
 
-  file { '/var/www/slides':
+  file { '/var/www/slides/':
     ensure => directory,
     links => follow,
     source => "puppet:///modules/dds2-client/slides",
@@ -47,10 +48,17 @@ class dds2-client (
         ensure => directory,
         recurse => true,
         links => follow,
+        require => File['/var/www/slides'],
         source => "puppet:///modules/dds2-client/slides/$x",
       }
     }
   }
+
+
+  File['/var/www/'] -> File['/var/www/slides/']
+  Package['apache2'] -> Service['apache2']
+  Package['mysql-server'] -> Service['mysql']
+
 
 
 }
