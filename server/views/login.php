@@ -1,10 +1,18 @@
 <!--
 
   Does a post to do-login with all the login info,
-
+  Now will check if you are logged in, and move you.
 -->
 
 <?php include('header.php'); ?>
+
+<?php
+  # if user is logged in, move away form /home  
+  if(Login::is_user_logged_in()){
+      header('Location:/home');
+  }
+
+?>
 <div class='container'>
   <div class='span5'>
     <h1>Sign in, please</h1>
