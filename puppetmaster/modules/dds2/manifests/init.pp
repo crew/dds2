@@ -16,11 +16,14 @@ class dds2-client (
     'libyaml-dev',
     'php-pear',
     'php5-dev',
-  ]
+   ]
 
   package { $packages: ensure => installed }
 
-  $services = ['apache2', 'mysql']
+  $services = [
+    'apache2',
+    'mysql'
+  ]
   service { $services: ensure => running }
 
   Package['apache2'] -> Service['apache2']
