@@ -1,3 +1,10 @@
+<!--
+
+  Each selected machine from the dropdown & the uuid of our slide is posted to
+  do-assign-slide.php which then does the (actual) assignment.
+
+-->
+
 <?php include 'header.php'?>
 <?php 
 global $url;

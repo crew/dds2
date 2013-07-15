@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!--
+   Our header, included on every single dds page
+-->
 <html>
   <head>
     <title>Digital Display System</title>

@@ -1,3 +1,9 @@
+<!--
+
+  Posts a deck to our do-upload page. This should just contain UI & a post.
+
+-->
+
 <?php include 'header.php' ?>
 <div class='container'>
   <div class='span6'>

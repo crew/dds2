@@ -1,3 +1,8 @@
+<!---
+
+  Checks cookie to get our user id (uid).
+  For each relevant deck, spits out a link to manage that deck.
+-->
 <?php include 'header.php'?>
 <div class='container'>
   <div class="row">

@@ -1,3 +1,9 @@
+<!--
+
+  Does a post to do-login with all the login info,
+
+-->
+
 <?php include('header.php'); ?>
 <div class='container'>
   <div class='span5'>
