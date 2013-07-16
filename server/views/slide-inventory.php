@@ -6,8 +6,8 @@ For each relevant deck, spits out a link to manage that deck.
 -->
 <?php include 'header.php'?>
 <div class='container'>
-  <div class="row">
-    <div class="span4">
+  <div class='row'>
+    <div class='span4'>
       <h1>Welcome Back </h1>
     </div>
   </div>
