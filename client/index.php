@@ -19,7 +19,6 @@
     <style type="text/css">
       body {
         background:url('loading.gif') no-repeat top center;
-        background-size:1920px 1080px;
       }
 
 

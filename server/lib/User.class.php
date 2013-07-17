@@ -37,8 +37,9 @@ class User {
     $result = mysqli_query($conn, $query);
     while($row= mysqli_fetch_array($result)){
       $group =  Deck::find_deck_by_id($row['gid']); 
-      $this->user_groups[] = $group;
+      $this->user_groups[] = new Group($group);
     }
+  
   }
 }
 ?> 
