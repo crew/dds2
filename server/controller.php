@@ -20,6 +20,9 @@ switch($url[0]) {
   case 'do-assign-slide':      include 'views/do-assign-slide.php'; break;
   case 'add-slide-deck': include 'views/add-slide-deck.php';        break;
   case 'do-logout':      include 'views/do-logout.php';             break;
+  case 'my-groups':      include 'views/my-groups.php';             break;
+  case 'do-create-group':      include 'views/do-create-group.php';             break;
+
 default: include 'views/home.php';
 }
 
