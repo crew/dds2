@@ -37,7 +37,7 @@ class dds2-client (
   file { '/var/www/slides/':
     ensure => directory,
     links => follow,
-    source => "puppet:///modules/dds2-client/slides",
+    #source => "puppet:///modules/dds2-client/slides",
   }
 
   if($slides == undef) {
