@@ -14,8 +14,13 @@
           updateSlides();
           $('body').css('background-image', 'url("'+window.files[window.i%window.files.length]+'")');
           window.i = window.i + 1;
-        }, 1000);
+        }, 2000);
     </script>
+    <style>
+      body {
+        background: no-repeat top center;
+      }
+    </style>
   </head>
   <body></body>
 </html>
