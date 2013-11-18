@@ -16,12 +16,6 @@
           window.i = window.i + 1;
         }, 1000);
     </script>
-    <style type="text/css">
-      body {
-        background:url('loading.gif') no-repeat top center;
-      }
-
-
   </head>
   <body></body>
 </html>
