@@ -17,8 +17,14 @@
         }, 1000);
     </script>
     <style type="text/css">
+      html, body {
+        height: 100%;
+        width: 100%;
+      }
+    
       body {
         background:url('loading.gif') no-repeat top center;
+        background-size: contain;
       }
 
 
