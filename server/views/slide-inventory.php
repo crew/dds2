@@ -17,7 +17,7 @@ For each relevant deck, spits out a link to manage that deck.
     $decks = $user->user_decks;
     foreach($decks as $deck){
       echo "<h1>";
-      echo '<a href="assign-slide/'.$deck->get_uuid().'">'.$deck->get_name().'</a>';
+      echo '<a href="assign-slides/'.$deck->get_uuid().'">'.$deck->get_name().'</a>';
 
       echo "</h1>";
       $deck_machines = $deck->get_deck_machines();
@@ -28,8 +28,8 @@ For each relevant deck, spits out a link to manage that deck.
         }
       }
     }
-    
-    ?> 
+
+    ?>
   </div>
 </div>
 

@@ -10,24 +10,29 @@
             window.files = data;
           });
         }
-        setInterval(function(){
-          updateSlides();
+        function changeSlides() {
           $('body').css('background-image', 'url("'+window.files[window.i%window.files.length]+'")');
           window.i = window.i + 1;
-        }, 1000);
+        }
+
+        updateSlides();
+        setInterval(function(){
+          updateSlides();
+          changeSlides();
+        }, 10000);
+
     </script>
-    <style type="text/css">
+    <style>
       html, body {
         height: 100%;
         width: 100%;
       }
-    
+
       body {
-        background:url('loading.gif') no-repeat top center;
+        background: url('http://i.imgur.com/XLRcy.jpg') no-repeat top center;
         background-size: contain;
       }
-
-
+    </style>
   </head>
   <body></body>
 </html>

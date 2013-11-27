@@ -1,25 +1,16 @@
-<!--
-
-  Does a post to do-login with all the login info,
-  Now will check if you are logged in, and move you.
--->
-
 <?php include('header.php'); ?>
-
-<?php
-  # if user is logged in, move away form /home  
-  if(Login::is_user_logged_in()){
-      header('Location:/home');
-  }
-
-?>
 <div class='container'>
   <div class='span5'>
     <h1>Sign in, please</h1>
     <p>To access the Digital Display System, please login using your CCIS credentials. If you need assistance, contact crew@ccs.neu.edu.</p>
   </div>
   <div class='span6 login-span'>
-    <form class='form-horizontal' action='/do-login' method='POST'>
+    <? if($this->attempted_login) { ?>
+      <div class='alert'>
+        <strong>Error!</strong> Your username or password was incorrect.
+      </div>
+    <? } ?>
+    <form class='form-horizontal' action='/login' method='POST'>
       <div class='control-group'>
         <label class='control-label' for='username'>Username</label>
         <div class='controls'>

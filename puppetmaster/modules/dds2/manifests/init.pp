@@ -18,26 +18,32 @@ class dds2-client (
     'php5-dev',
    ]
 
-  package { $packages: ensure => installed }
+  package { $packages:
+    ensure => installed
+  }
 
   $services = [
     'apache2',
     'mysql'
   ]
-  service { $services: ensure => running }
+  service { $services:
+    ensure => running
+  }
 
   file { '/var/www/':
-    ensure => directory,
+    ensure  => directory,
     recurse => true,
-    links => follow,
-    source => "puppet:///modules/dds2-client/www",
-    before => File['/var/www/slides/']
+    links   => follow,
+    source  => "puppet:///modules/dds2-client/www",
+    before  => File['/var/www/slides/']
   }
 
   file { '/var/www/slides/':
-    ensure => directory,
-    links => follow,
-    source => "puppet:///modules/dds2-client/slides",
+    ensure  => directory,
+    links   => follow,
+    recurse => true,
+    force   => true,
+    purge   => true,
   }
 
   if($slides == undef) {
@@ -45,18 +51,18 @@ class dds2-client (
   } else {
     each($slides) |$x| {
       file { "/var/www/slides/$x":
-        ensure => directory,
+        ensure  => directory,
         recurse => true,
-        links => follow,
-        require => File['/var/www/slides'],
-        source => "puppet:///modules/dds2-client/slides/$x",
+        links   => follow,
+        require => File['/var/www/slides/'],
+        source  => "puppet:///modules/dds2-client/slides/$x",
       }
     }
   }
 
 
-  File['/var/www/'] -> File['/var/www/slides/']
-  Package['apache2'] -> Service['apache2']
+  File['/var/www/']       -> File['/var/www/slides/']
+  Package['apache2']      -> Service['apache2']
   Package['mysql-server'] -> Service['mysql']
 
 

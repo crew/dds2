@@ -50,11 +50,11 @@ class Login {
     $ldapconn = new LDAP();
     return $ldapconn->get_name_from_id($id);
   }
-  
+
   # Logs out any user; kills cookie & brings to /login?logout
   public static function logout() {
     setcookie("auth", "", time()-3600);
-  } 
+  }
 }
 
 ?>

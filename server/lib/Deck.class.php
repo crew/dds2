@@ -69,7 +69,7 @@ class Deck {
     $result = mysqli_query($conn, $query);
     while($row = mysqli_fetch_array($result)){
       $this->machines[] = $row['machine_fqdn'];
-    } 
+    }
   }
   # Uses this object's id and builds the group variable
   public function build_group() {
@@ -122,6 +122,12 @@ class Deck {
 
   }
 
+  public function remove_associated_machines() {
+    global $conn;
+    $query = "DELETE FROM machine_deck_assignment WHERE uuid = '{$this->uuid}'";
+    mysqli_query($conn, $query);
+  }
+
   public function assign_machine($machine_fqdn) {
     global $conn;
     $query = "INSERT INTO machine_deck_assignment (uuid, machine_fqdn) VALUES ('{$this->uuid}','$machine_fqdn')";
@@ -152,16 +158,16 @@ class Deck {
 
   public function get_uuid(){
     return $this->uuid;
-  } 
+  }
 
   public function get_name(){
     return $this->name;
-  } 
- 
+  }
+
   public function get_deck_machines() {
     return $this->machines;
   }
-  
+
   public function get_user(){
     return $this->user;
   }
