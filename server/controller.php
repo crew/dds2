@@ -27,26 +27,4 @@ if(array_key_exists($_SERVER['URL'][0], $map)) {
   $controller->render();
 }
 
-
-## Switch for url routing
-#switch($url[0]) {
-#  case 'login':          include 'views/login.php';                 break;
-#  case 'do-login':       include 'views/do-login.php';              break;
-#  case 'slide-inventory':      include 'views/slide-inventory.php'; break;
-#  case 'do-upload':         include 'views/do-upload.php';          break;
-#  case 'assign-slide':      include 'views/assign-slide.php';       break;
-#  case 'do-assign-slide':      include 'views/do-assign-slide.php'; break;
-#  case 'add-slide-deck': include 'views/add-slide-deck.php';        break;
-#  case 'do-logout':      include 'views/do-logout.php';             break;
-#  case 'my-groups':      include 'views/my-groups.php';             break;
-#  case 'do-create-group':      include 'views/do-create-group.php';             break;
-#
-#default: include 'views/home.php';
-#}
-
-
-
-
-
-
 ?>
