@@ -12,14 +12,13 @@
   <body>
     <div class="navbar">
       <div class="navbar-inner">
-        <a class="brand" href="/home">Digital Display System</a>
+        <a class="brand" href="/slide-inventory">Digital Display System</a>
         <ul class="nav">
           <li><a href="/add-slide-deck">Add Slide Deck</a></li>
           <li><a href="/slide-inventory">Slide Deck Inventory</a></li>
-          <li><a href="/my-groups">My Groups</a></li>
           <?php
-          if(Login::is_user_logged_in()){
-          echo '<li><a href="/do-logout">Logout</a></li>';
+            if(Login::is_user_logged_in()){
+            echo '<li><a href="/logout">Logout</a></li>';
           }
           ?>
         </ul>

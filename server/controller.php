@@ -5,7 +5,7 @@ include 'lib/lib.php';
 $_SERVER['URL'] = explode_url($_SERVER['REQUEST_URI']);
 
 if($_SERVER['URL'][0] == '')
-  header('Location:/home');
+  header('Location:/slide-inventory');
 
 if(!Login::is_user_logged_in() && $_SERVER['URL'][0] != 'login' )
   header('Location:/login');
@@ -18,7 +18,6 @@ $map = array(
   'assign-slides'   => 'SlideController',
   'add-slide-deck'  => 'SlideController',
   'logout'          => 'LoginController',
-  'home'            => 'HomeController'
 );
 
 if(array_key_exists($_SERVER['URL'][0], $map)) {
