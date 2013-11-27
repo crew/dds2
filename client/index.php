@@ -10,15 +10,21 @@
             window.files = data;
           });
         }
-        setInterval(function(){
-          updateSlides();
+        function changeSlides() {
           $('body').css('background-image', 'url("'+window.files[window.i%window.files.length]+'")');
           window.i = window.i + 1;
-        }, 2000);
+        }
+
+        updateSlides();
+        setInterval(function(){
+          updateSlides();
+          changeSlides();
+        }, 10000);
+
     </script>
     <style>
       body {
-        background: no-repeat top center;
+        background: url('http://i.imgur.com/XLRcy.jpg') no-repeat top center;
       }
     </style>
   </head>
