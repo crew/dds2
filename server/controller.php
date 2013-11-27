@@ -15,7 +15,6 @@ if(!Login::is_user_logged_in() && $_SERVER['URL'][0] != 'login' )
 $map = array(
   'login'           => 'LoginController',
   'slide-inventory' => 'SlideController',
-  'upload'          => 'Upload',
   'assign-slides'   => 'SlideController',
   'add-slide-deck'  => 'SlideController',
   'logout'          => 'LoginController',
