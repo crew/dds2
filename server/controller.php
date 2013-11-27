@@ -4,7 +4,7 @@ include 'lib/lib.php';
 
 $_SERVER['URL'] = explode_url($_SERVER['REQUEST_URI']);
 
-if(count($_SERVER['URL']) < 1)
+if($_SERVER['URL'][0] == '')
   header('Location:/home');
 
 if(!Login::is_user_logged_in() && $_SERVER['URL'][0] != 'login' )
