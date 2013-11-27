@@ -28,8 +28,8 @@ For each relevant deck, spits out a link to manage that deck.
         }
       }
     }
-    
-    ?> 
+
+    ?>
   </div>
 </div>
 
