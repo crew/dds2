@@ -23,8 +23,14 @@
 
     </script>
     <style>
+      html, body {
+        height: 100%;
+        width: 100%;
+      }
+
       body {
         background: url('http://i.imgur.com/XLRcy.jpg') no-repeat top center;
+        background-size: contain;
       }
     </style>
   </head>
