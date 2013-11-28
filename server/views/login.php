@@ -9,6 +9,10 @@
       <div class='alert'>
         <strong>Error!</strong> Your username or password was incorrect.
       </div>
+    <? } else if(isset($_GET['loggedout'])) { ?>
+      <div class='alert'>
+        You have been logged out!
+      </div>
     <? } ?>
     <form class='form-horizontal' action='/login' method='POST'>
       <div class='control-group'>

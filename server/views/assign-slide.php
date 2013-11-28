@@ -6,11 +6,11 @@ $deck_uuid = $_SERVER['URL'][1];
   <div class='span5'>
     <? if(isset($_GET['success'])) { ?>
     <div class='alert alert-success'>
-      <strong>Success!</strong> Your slides are being pushed to the machines within a minute.
+      <strong>Success!</strong> Your slides will be pushed to the machines within a minute.
     </div>
     <? } ?>
     <h1>Assign slides</h1>
-    <p>Choose a machine from the dropdown on the left and a set of slides from the dropdown on the right </p>
+    <p>Please choose the machines the slides should be on.</p>
   </div>
   <div class='span12'>
     <form class='form-horizontal' name='machine_names' action='/assign-slides' method='POST'>

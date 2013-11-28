@@ -17,7 +17,7 @@ class SlideController extends Controller {
 
     # This will create the definitive list of machines hosting this slide deck.
     $deck->remove_associated_machines();
-    if(count($_POST['machines_fqdn']) > 0) {
+    if(count($_POST['machine_fqdn']) > 0) {
       foreach($_POST['machine_fqdn'] as $machine) {
         $deck->assign_machine($machine);
       }
