@@ -23,6 +23,8 @@ $map = array(
 if(array_key_exists($_SERVER['URL'][0], $map)) {
   $controller = new $map[$_SERVER['URL'][0]];
   $controller->render();
+} else {
+  header('Location:/slide-inventory');
 }
 
 ?>

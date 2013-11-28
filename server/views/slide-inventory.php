@@ -1,37 +1,20 @@
-<!---
-
-Checks cookie to get our user id (uid).
-For each relevant deck, spits out a link to manage that deck.
-
--->
 <?php include 'header.php'?>
 <div class='container'>
   <div class='row'>
     <div class='span4'>
-      <h1>Welcome Back </h1>
+      <h1>Your Slides</h1>
     </div>
   </div>
   <div>
     <?php
-    $user = new User($_COOKIE['auth']);
-    $decks = $user->user_decks;
-    foreach($decks as $deck){
-      echo "<h1>";
-      echo '<a href="assign-slides/'.$deck->get_uuid().'">'.$deck->get_name().'</a>';
-
-      echo "</h1>";
-      $deck_machines = $deck->get_deck_machines();
-      # if the machines array is empty, we dont do anything, this will throw error otherwise.
-      if(!($deck_machines == array())){
-        foreach($deck_machines as $machine){
-         echo "<p>$machine</p>";
-        }
-      }
-    }
-
-    ?>
+      $user = new User($_COOKIE['auth']);
+      $decks = $user->user_decks;
+      foreach($decks as $d) { ?>
+        <div class='span3'>
+          <a href="/assign-slides/<?=$d->get_uuid()?>/"><img src="slides/<?=$d->get_uuid()?>/slide.jpg">
+          <h3 class='text-center'><?=$d->get_name()?></h3></a>
+        </div>
+     <? } ?>
   </div>
 </div>
-
-
 <?php include 'footer.php'?>

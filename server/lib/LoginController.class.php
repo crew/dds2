@@ -16,13 +16,13 @@ class LoginController extends Controller {
       $login = new Login();
       $auth = ($login->authenticate_user($_POST['username'], $_POST['password'], true));
 
-      if($auth) header('Location:/home');
+      if($auth) header('Location:/slide-inventory');
       else $this->attempted_login = true;
     }
 
-    /* If the user is logged in, send them to /home */
+    /* If the user is logged in, send them to /slide-inventory */
     else if(Login::is_user_logged_in()) {
-      header('Location:/home');
+      header('Location:/slide-inventory');
     }
   }
 
