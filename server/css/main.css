@@ -2,3 +2,8 @@
 .login-span {
   margin-top: 55px;
 }
+
+.slide {
+  border:1px #ccc solid;
+  display: block;
+}
