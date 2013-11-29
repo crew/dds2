@@ -3,7 +3,12 @@
   margin-top: 55px;
 }
 
-.slide {
-  border:1px #ccc solid;
-  display: block;
+.slidedeck {
+  min-height: 250px;
+}
+
+.slidedeck img {
+  max-width: 200px;
+  margin: 0 auto;
+  text-align:center;
 }
