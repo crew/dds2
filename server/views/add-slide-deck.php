@@ -1,37 +1,29 @@
-<!--
-
-  Posts a deck to our do-upload page. This should just contain UI & a post.
-
--->
-
 <?php include 'header.php' ?>
-<div class='container'>
-  <div class='span6'>
-    <h1>Add a new slide deck</h1>
-    <p>Upload a PDF to create a slide deck. Digital Display will take each page of your PDF and convert them into a slide deck. All you have to do is take your presentation and upload it to the cloud~~~.</p>
-  </div>
-  <div class='span5'>
-    <form class='form-horizontal' action='/add-slide-deck' method='POST' enctype='multipart/form-data'>
-      <div class='control-group'>
-        <label class='control-label' for='name'>Name</label>
-        <div class='controls'>
-          <input type='text' name='name'  id='name' placeholder='Name of slidedeck'>
-        </div>
-      </div>
-      <div class='control-group'>
-        <label class='control-label' for='upload'>Upload PDF</label>
-        <div class='controls'>
-          <input type='file' id='file' name='file' placeholder='Upload PDF'>
-        </div>
-      </div>
-      <div class='control-group'>
-        <div class='controls'>
-          <button type='submit' class='btn'>Create</button>
-        </div>
-      </div>
-
-    </form>
-  </div>
-
+<div class='jumbotron'>
+  <div class='container'>
+    <h1>Add a new slide deck.</h1>
+    <p>Go on, make this system actually useful.</p>
+    </div>
 </div>
-<?php include 'footer.php' ?>
+<div class='container'>
+  <div class='row'>
+    <div class='col-sm-6 col-center text-center'>
+      <p>Please upload a PDF in landscape containing all the slides for your deck.</p>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-6 col-center'>
+      <form role='form' action='/add-slide-deck' method='POST' enctype='multipart/form-data'>
+        <div class='control-group col-center col-md-5 text-center'>
+          <label for='name'>Name of slide deck</label>
+          <input type='text' class='form-control' name='name' placeholder='Name'>
+        </div>
+        <div class='control-group col-center col-md-5 text-center' style='margin-top:20px;'>
+          <input type='file' name='file'>
+        </div>
+        <button class='btn btn-primary col-center' style='display:block; margin-top:20px;'>Upload</button>
+      </form>
+    </div>
+  </div>
+</div>
+<?php include('footer.php'); ?>

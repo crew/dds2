@@ -13,3 +13,12 @@
   display: block;
   text-align:center;
 }
+
+.navbar {
+  margin-bottom:0px;
+}
+
+.col-center {
+  float: none;
+  margin: 0 auto;
+}
