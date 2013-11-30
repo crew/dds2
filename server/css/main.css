@@ -2,3 +2,23 @@
 .login-span {
   margin-top: 55px;
 }
+
+.slidedeck {
+  min-height: 250px;
+}
+
+.slidedeck img {
+  max-width: 200px;
+  margin: 0 auto;
+  display: block;
+  text-align:center;
+}
+
+.navbar {
+  margin-bottom:0px;
+}
+
+.col-center {
+  float: none;
+  margin: 0 auto;
+}
